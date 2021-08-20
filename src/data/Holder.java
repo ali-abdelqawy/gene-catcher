@@ -8,7 +8,7 @@ public class Holder {
     HashMap<String, String> strands = new HashMap<>();
 	
 	public Holder(String folderName) {
-		if (!folderName.isEmpty() && !folderName.isBlank()) {
+		if (!(folderName.isEmpty() || folderName.isBlank())) {
 			this.folderName = folderName;
 			setDNAs();
 		}
@@ -17,10 +17,8 @@ public class Holder {
 	}
 	public String[] loadDNAsFiles() {
 		String[] DNAsFiles = Fetcher.readAllFiles(folderName);
-		if (DNAsFiles == null) {
+		if (DNAsFiles == null)
 			System.err.println("Invalid folder name");
-			return null;
-		}
 	
 		return DNAsFiles;		
 	}
@@ -36,7 +34,11 @@ public class Holder {
 	
 	private void setDNAs() {
 		String[] DNAsFiles = loadDNAsFiles();
+		if (DNAsFiles == null)
+			return;
+		
 		ArrayList<String> strands = loadStrands(DNAsFiles);
+		
 		for (int i = 0; i < DNAsFiles.length; i++) {
 			this.strands.put(DNAsFiles[i], strands.get(i));
 		}
