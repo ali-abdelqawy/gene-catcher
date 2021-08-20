@@ -1,4 +1,4 @@
-package data.fetch.file;
+package data.fetch;
 
 import java.io.File;
 import java.io.IOException;
