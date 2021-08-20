@@ -1,14 +1,14 @@
-package data.fetch;
+package data;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-public final class Handler {
+public final class Fetcher {
 	
     // Private constructor to prevent instantiation
-	private Handler() {
+	private Fetcher() {
 	    throw new UnsupportedOperationException();
 	}
 	
