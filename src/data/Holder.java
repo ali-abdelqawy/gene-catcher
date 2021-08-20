@@ -5,7 +5,7 @@ import java.util.HashMap;
 
 public class Holder {
 	private String folderName = "";
-    HashMap<String, String> DNAs = new HashMap<>();
+    HashMap<String, String> strands = new HashMap<>();
 	
 	public Holder(String folderName) {
 		if (!folderName.isEmpty() && !folderName.isBlank()) {
@@ -38,12 +38,12 @@ public class Holder {
 		String[] DNAsFiles = loadDNAsFiles();
 		ArrayList<String> strands = loadStrands(DNAsFiles);
 		for (int i = 0; i < DNAsFiles.length; i++) {
-			this.DNAs.put(DNAsFiles[i], strands.get(i));
+			this.strands.put(DNAsFiles[i], strands.get(i));
 		}
 	}
 	
 	public HashMap<String, String> getDNAs() {
-		return this.DNAs;
+		return this.strands;
 	}
 	
 }
