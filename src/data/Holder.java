@@ -1,36 +1,48 @@
 package data;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Holder {
 	private String folderName = "";
-	private ArrayList<String> DNAs = new ArrayList<String>(0);
+    HashMap<String, String> DNAs = new HashMap<>();
 	
 	public Holder(String folderName) {
 		if (!folderName.isEmpty() && !folderName.isBlank()) {
 			this.folderName = folderName;
-			loadDNAsFiles();
+			setDNAs();
 		}
 		else
 			System.err.println("You must specify the folder name");
 	}
-	public void loadDNAsFiles() {
+	public String[] loadDNAsFiles() {
 		String[] DNAsFiles = Fetcher.readAllFiles(folderName);
 		if (DNAsFiles == null) {
 			System.err.println("Invalid folder name");
-			return;
+			return null;
 		}
-		setDNAs(DNAsFiles);
+	
+		return DNAsFiles;		
 	}
 	
-	private void setDNAs(String[] DNAsFiles) {
+	private ArrayList<String> loadStrands(String[] DNAsFiles) {
+		ArrayList<String> strands = new ArrayList<String>(0);
 		for (String DNAFile : DNAsFiles) {
-			String DNA = Fetcher.fileToString(DNAFile);
-			DNAs.add(DNA);
+			String DNA = Fetcher.fileToString(folderName + "/" + DNAFile);
+			strands.add(DNA);
+		}
+		return strands;
+	}
+	
+	private void setDNAs() {
+		String[] DNAsFiles = loadDNAsFiles();
+		ArrayList<String> strands = loadStrands(DNAsFiles);
+		for (int i = 0; i < DNAsFiles.length; i++) {
+			this.DNAs.put(DNAsFiles[i], strands.get(i));
 		}
 	}
 	
-	public ArrayList<String> getDNAs() {
+	public HashMap<String, String> getDNAs() {
 		return this.DNAs;
 	}
 	
