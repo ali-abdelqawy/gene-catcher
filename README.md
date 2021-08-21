@@ -19,4 +19,19 @@ Total genes for every DNA strand.
 -   ATG is a special codon that indicates the start of a gene (start codon).
 -   TAA, TAG and TGA are special codons that indicate the end of a gene (stop codons).
 -   If the gene has multiple stop codons that make a valid gene, pick the stop codon with the smallest index.
--   The DNA string is called strands.
+-   The DNA string is called strand.
+
+## How the algorithm validates the genes:
+
+-   ATGTGGTAA is a valid gene because it starts with ATG and ends with TAA and is divisible by 3
+-   ATGTTGA is not a valid gene because it's not divisible by 3
+-   TTGTGA is not a valid gene because it's doesn't start with ATG
+-   ATGTGGG is not a valid gene because it doesn't end with one of the stop codons: TGA, TAA or TAG
+
+## Example:
+
+**Input**: ATGAAATGA-CCC-ATGCTAA-ATGCCCTAG
+
+**Output**: Total Genes = 2
+
+**The found valid genes are**: "ATGAAATGA" and "ATGCCCTAG"
