@@ -1,4 +1,4 @@
-package data;
+package main.data;
 
 import java.io.File;
 import java.io.IOException;

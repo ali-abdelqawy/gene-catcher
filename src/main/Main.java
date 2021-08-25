@@ -2,7 +2,7 @@ package main;
 
 import java.util.HashMap;
 
-import data.DNA;
+import main.data.DNA;
 
 public class Main {
 
