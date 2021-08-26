@@ -7,24 +7,21 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import main.errors.ErrorGenerator;
+
 public final class Fetcher {
 	
 	private String folderName;
 	
-	public Fetcher(String folderName) {
+	protected Fetcher(String folderName) {			
 		this.folderName = folderName;
 	}
 	
 	public HashMap<String, String> getFilesContent() {
-		if (folderName.isEmpty() || folderName.isBlank()) {
-			System.err.println("You must specify the folder name");
-			return null;
-		}
-
 		String[] fileNames = getFilesNames();
-		
+		if (fileNames == null)
+			return null;
 		ArrayList<String> filesContent =  getFilesContent(fileNames);
-		
 	    HashMap<String, String> contentByFiles = new HashMap<>();
 
 		for (int i = 0; i < fileNames.length; i++) {
@@ -35,15 +32,12 @@ public final class Fetcher {
 	}
 	
 	private String[] getFilesNames() {
-		try {
 	        String[] filesNames;
 	        File f = new File(folderName);
 	        filesNames = f.list();
+	        if (filesNames == null)
+	        	System.err.println(ErrorGenerator.getNoFolderFoundError(folderName));
 		    return filesNames;
-		} catch (Exception e) {
-			System.err.println("Could not find any folder with this name");
-			return null;
-		}
 	}
 	
 	private ArrayList<String> getFilesContent(String[] fileNames) {
@@ -51,7 +45,8 @@ public final class Fetcher {
 		
 		for (String fileName : fileNames) {
 			String fileContent = fileToString(folderName + "/" + fileName);
-			filesContent.add(fileContent);
+			if (!fileName.isEmpty())
+				filesContent.add(fileContent);
 		}
 		
 		return filesContent;
@@ -60,10 +55,12 @@ public final class Fetcher {
 	private String fileToString(String fileName) {
 		try {
 	        Path path = Path.of(fileName);
-	        return (Files.readString(path)).toUpperCase();
+	        String fileContent = Files.readString(path).toUpperCase();
+	        return fileContent;
 		} catch (IOException e) {
-			System.err.println("error: could not find any file with this name -> " + fileName);
+			System.err.println(ErrorGenerator.getNoFileFoundError(fileName));
 			return "";
 		}
 	}
+	
 }
