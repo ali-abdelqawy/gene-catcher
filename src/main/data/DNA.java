@@ -3,12 +3,13 @@ package main.data;
 import java.util.HashMap;
 
 import main.errors.ErrorGenerator;
-import main.validation.StringValidator;
+import main.validation.Validator;
 
 public class DNA {
 	final static String startCodon = "ATG";
 	final static String[] stopCodons = {"TAA", "TAG", "TGA"};
 	final static int codonLength = 3;
+	int totalGenes = 0;
 	
 	public static HashMap<String, String> getStrandsByFiles(String folderName) {
 		if (isFolderNameEmpty(folderName)) {
@@ -28,7 +29,7 @@ public class DNA {
 	}
 	
 	public static boolean isFolderNameEmpty(String folderName) {
-		return StringValidator.isEmpty(folderName);
+		return Validator.isStringEmpty(folderName);
 	}
 	
 }

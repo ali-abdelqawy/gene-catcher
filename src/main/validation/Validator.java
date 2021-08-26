@@ -1,7 +1,9 @@
 package main.validation;
 
-public class StringValidator {
-	public static boolean isEmpty(String s) {
+public class Validator {
+	
+	public static boolean isStringEmpty(String s) {
 		return (s == null || s.isEmpty() || s.isBlank()) ? true : false;
 	}
+	
 }
