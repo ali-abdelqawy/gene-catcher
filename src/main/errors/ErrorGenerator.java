@@ -6,7 +6,7 @@ public class ErrorGenerator {
 	}
 	
 	public static String getNoFolderFoundError(String folderName) {
-		return "could not find any folder with this name -> " + folderName;
+		return "could not find any folder with this name -> " + "\"" + folderName + "\"";
 	}
 	
 	public static String getNoFileFoundError(String fileName) {
