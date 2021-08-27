@@ -56,4 +56,13 @@ public class DNA {
 		if(!gene.isEmpty())
 			genes.add(gene);
 	}
+	
+	public String getFileName() {
+		return this.getFileName();
+	}
+	
+	public String getStrand() {
+		return this.strand;
+	}
+	
 }
