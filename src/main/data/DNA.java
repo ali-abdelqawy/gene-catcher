@@ -58,7 +58,7 @@ public class DNA {
 	}
 	
 	public String getFileName() {
-		return this.getFileName();
+		return this.fileName;
 	}
 	
 	public String getStrand() {
