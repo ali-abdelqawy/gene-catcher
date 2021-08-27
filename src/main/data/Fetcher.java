@@ -36,7 +36,7 @@ public final class Fetcher {
 	        File f = new File(folderName);
 	        filesNames = f.list();
 	        if (filesNames == null)
-	        	System.err.println(ErrorGenerator.getNoFolderFoundError(folderName));
+	        	ErrorGenerator.printError(ErrorGenerator.getNoFolderFoundError(folderName));
 		    return filesNames;
 	}
 	
@@ -58,7 +58,7 @@ public final class Fetcher {
 	        String fileContent = Files.readString(path).toUpperCase();
 	        return fileContent;
 		} catch (IOException e) {
-			System.err.println(ErrorGenerator.getNoFileFoundError(fileName));
+			ErrorGenerator.printError(ErrorGenerator.getNoFileFoundError(fileName));
 			return "";
 		}
 	}
