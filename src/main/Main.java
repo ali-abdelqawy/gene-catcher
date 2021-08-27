@@ -10,7 +10,7 @@ public class Main {
 	public static void main(String[] args) {
 		final String folderName = "input";
 		
-		HashMap<String, String> strandsByFiles = DNA.getStrandsByFiles(folderName);
+		HashMap<String, String> strandsByFiles = DNA.getStrandsByFiles(folderName.trim());
 		if (strandsByFiles == null)
 			return;
 		
