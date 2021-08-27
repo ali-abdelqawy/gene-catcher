@@ -65,4 +65,8 @@ public class DNA {
 		return this.strand;
 	}
 	
+	public static int getCodonLength() {
+		return codonLength;
+	}
+	
 }
