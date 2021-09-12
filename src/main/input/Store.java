@@ -1,4 +1,4 @@
-package main.data;
+package main.input;
 
 import java.util.ArrayList;
 import java.util.HashMap;
