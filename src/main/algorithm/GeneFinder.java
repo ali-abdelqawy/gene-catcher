@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import main.input.DNA;
 import main.input.Store;
 import main.validation.Validator;
+import main.output.Printer;
 
 public class GeneFinder {
 
@@ -26,7 +27,7 @@ public class GeneFinder {
 		for (DNA dna : DNAs) {
 			GeneFinder gf = new GeneFinder(dna);
 			gf.findAllGenes();
-			gf.printResult();
+			Printer.print(gf.dna);
 		}
 	}
 	
@@ -84,13 +85,6 @@ public class GeneFinder {
 	
 	private static boolean isSecondIndexSmaller(int firstIndex, int secondIndex) {
 		return (firstIndex == -1 || (secondIndex != -1 && secondIndex < firstIndex));		
-	}
-	
-	private void printResult() {
-		System.out.println("filename -> " + "\"" + this.dna.getFileName() + "\"");
-		System.out.println("");
-		System.out.println("total genes = " + this.dna.getGenes().size());
-		System.out.println("----------------------------------");		
 	}
 	
 }
