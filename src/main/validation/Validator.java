@@ -1,7 +1,7 @@
 package main.validation;
 
+import main.constants.Codon;
 import main.errors.ErrorGenerator;
-import main.input.DNA;
 
 public class Validator {
 	
@@ -23,6 +23,6 @@ public class Validator {
 	
 	public static boolean isGeneValid(int geneStart, int stopCodonIndex) {
 		int distance = stopCodonIndex - geneStart;
-		return distance % DNA.codonLength == 0;
+		return distance % Codon.LENGTH == 0;
 	}
 }

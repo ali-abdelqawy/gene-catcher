@@ -2,6 +2,7 @@ package main.algorithm;
 
 import java.util.ArrayList;
 
+import main.constants.Codon;
 import main.input.DNA;
 import main.input.Store;
 import main.validation.Validator;
@@ -42,26 +43,26 @@ public class GeneFinder {
 			dna.addGene(gene);
 			// Update the start index to look for the next gene
 			fromIndex = startCodonIndex;
-			fromIndex += gene.isEmpty() ? DNA.codonLength : gene.length();
+			fromIndex += gene.isEmpty() ? Codon.LENGTH : gene.length();
 			
 			startCodonIndex = getStartCodonIndex(fromIndex);
 		}
 	}
 
 	private int getStartCodonIndex(int fromIndex) {
-		return strand.indexOf(DNA.startCodon, fromIndex);
+		return strand.indexOf(Codon.START, fromIndex);
 	}
 	
 	private String findGene(int geneStart) {
 		int minIndex = getMinIndex(geneStart);
-		return minIndex != -1 ? strand.substring(geneStart, minIndex + DNA.codonLength) : "";
+		return minIndex != -1 ? strand.substring(geneStart, minIndex + Codon.LENGTH) : "";
 	}
 	
 	private int getMinIndex(int geneStart) {
 		int minIndex = -1,
-			taaIndex = getStopCodonIndex(DNA.stopCodons.TAA.toString(), geneStart, geneStart),
-			tagIndex = getStopCodonIndex(DNA.stopCodons.TAG.toString(), geneStart, geneStart),
-			tgaIndex = getStopCodonIndex(DNA.stopCodons.TGA.toString(), geneStart, geneStart);
+			taaIndex = getStopCodonIndex(Codon.Stop.TAA.toString(), geneStart, geneStart),
+			tagIndex = getStopCodonIndex(Codon.Stop.TAG.toString(), geneStart, geneStart),
+			tgaIndex = getStopCodonIndex(Codon.Stop.TGA.toString(), geneStart, geneStart);
 		
 		minIndex = getMinIndexBetweenTwo(taaIndex, tagIndex);
 		minIndex = getMinIndexBetweenTwo(minIndex, tgaIndex);
@@ -75,7 +76,7 @@ public class GeneFinder {
 		if (stopCodonIndex != -1)
 			return Validator.isGeneValid(geneStart, stopCodonIndex) ?
 				   stopCodonIndex :
-				   getStopCodonIndex(stopCodon, geneStart, stopCodonIndex + DNA.codonLength);
+				   getStopCodonIndex(stopCodon, geneStart, stopCodonIndex + Codon.LENGTH);
 		return -1;
 	}
 	
