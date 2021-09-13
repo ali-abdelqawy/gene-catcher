@@ -11,7 +11,7 @@ import main.errors.ErrorGenerator;
 
 public final class Fetcher {
 	
-	private String folderName;
+	private String folderName = "";
 	
 	protected Fetcher(String folderName) {			
 		this.folderName = folderName;

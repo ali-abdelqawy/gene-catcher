@@ -10,7 +10,7 @@ import main.output.Printer;
 
 public class GeneFinder {
 
-	private DNA dna = null;
+	private DNA dna;
 	private String strand = "";
 	
 	public GeneFinder(DNA dna) {
@@ -23,8 +23,10 @@ public class GeneFinder {
 			return;
 		
 		Store store = new Store(folderName);
-			
 		ArrayList<DNA> DNAs = store.getDNAs();
+		if (DNAs == null)
+			return;
+		
 		for (DNA dna : DNAs) {
 			GeneFinder gf = new GeneFinder(dna);
 			gf.findAllGenes();
