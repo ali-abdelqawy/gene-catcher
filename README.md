@@ -30,21 +30,23 @@ Total genes for every DNA strand.
 
 ## Examples
 
-**Input**: ATGAAATGA-CCC-ATGCTAA-ATGCCCTAG
+```
+Input: ATGAAATGA-CCC-ATGCTAA-ATGCCCTAG
 
-**Output**: Total Genes = 2
+Output: Total Genes = 2
 
-**The found valid genes are**: "ATGAAATGA" and "ATGCCCTAG"
+The found valid genes are: "ATGAAATGA" and "ATGCCCTAG"
+```
 
----
+```
+Input: ATGCCCTGATAGTAA
 
-**Input**: ATGCCCTGATAGTAA
+Output: Total Genes = 1
 
-**Output**: Total Genes = 1
+The found valid gene is: "ATGAAATGA"
 
-**The found valid gene is**: "ATGAAATGA"
-
-**Explanation**: This DNA strand has the three stop codons and all of them can make up a valid gene in this case we find the stop codon that precedes the other stop codons which is "TGA" in this case
+Explanation: This DNA strand has the three stop codons and all of them can make up a valid gene in this case we find the stop codon that precedes the other stop codons which is "TGA" in this case
+```
 
 ## Algorithm Steps
 
