@@ -11,7 +11,7 @@ import errors.ErrorGenerator;
 
 public final class Fetcher {
 
-    private String folderName = "";
+    private final String folderName;
 
     protected Fetcher(String folderName) {
         this.folderName = folderName;
@@ -21,12 +21,12 @@ public final class Fetcher {
         String[] fileNames = getFilesNames();
         if (fileNames == null)
             return null;
+
         ArrayList<String> filesContent =  getFilesContent(fileNames);
         HashMap<String, String> contentByFiles = new HashMap<>();
 
-        for (int i = 0; i < fileNames.length; i++) {
+        for (int i = 0; i < fileNames.length; i++)
             contentByFiles.put(fileNames[i], filesContent.get(i));
-        }
 
         return contentByFiles;
     }
@@ -41,7 +41,7 @@ public final class Fetcher {
     }
 
     private ArrayList<String> getFilesContent(String[] fileNames) {
-        ArrayList<String> filesContent = new ArrayList<String>(0);
+        ArrayList<String> filesContent = new ArrayList<>(0);
 
         for (String fileName : fileNames) {
             String fileContent = fileToString(folderName + "/" + fileName);

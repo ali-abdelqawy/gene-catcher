@@ -43,6 +43,7 @@ public class GeneFinder {
         while (startCodonIndex != -1) {
             String gene = findGene(startCodonIndex);
             dna.addGene(gene);
+            
             // Update the start index to look for the next gene
             fromIndex = startCodonIndex;
             fromIndex += gene.isEmpty() ? Codon.LENGTH : gene.length();

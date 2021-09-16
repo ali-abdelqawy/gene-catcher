@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Store {
-    private String folderName = "";
+    private final String folderName;
     private ArrayList<DNA> DNAs;
     private HashMap<String, String> strandsByFiles;
 
@@ -25,7 +25,7 @@ public class Store {
         if (strandsByFiles == null)
             return;
 
-        ArrayList<DNA> DNAs = new ArrayList<DNA>(strandsByFiles.size());
+        ArrayList<DNA> DNAs = new ArrayList<>(strandsByFiles.size());
         for (HashMap.Entry<String, String> entry : strandsByFiles.entrySet()) {
             String fileName = entry.getKey(), strand = entry.getValue();
             DNA dna = new DNA(fileName, strand);

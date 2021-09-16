@@ -9,7 +9,7 @@ public class Validator {
         if (s == null)
             return true;
 
-        return s.isEmpty() ? true : false;
+        return s.isEmpty();
     }
 
     public static boolean isFolderNameValid(String folderName) {

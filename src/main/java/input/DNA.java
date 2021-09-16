@@ -3,9 +3,9 @@ package input;
 import java.util.ArrayList;
 
 public class DNA {
-    private String fileName = "";
-    private String strand = "";
-    private ArrayList<String> genes = new ArrayList<String>(0);
+    private final String fileName;
+    private final String strand;
+    private final ArrayList<String> genes = new ArrayList<>(0);
 
     public DNA(String fileName, String strand) {
         this.fileName = fileName;
