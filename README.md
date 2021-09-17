@@ -45,7 +45,8 @@ Output: Total Genes = 1
 
 The found valid gene is: "ATGAAATGA"
 
-Explanation: This DNA strand has the three stop codons and all of them can make up a valid gene in this case we find the stop codon that precedes the other stop codons which is "TGA" in this case
+Explanation: This DNA strand has the three stop codons and all of them can make up a valid gene,
+in this case, we find the stop codon that precedes the other stop codons which is "TGA"
 ```
 
 ## Algorithm Steps
@@ -64,21 +65,21 @@ Explanation: This DNA strand has the three stop codons and all of them can make 
 
 ## How to Run the Project
 
-### Using CMD
+### Using CLI
 
     git clone https://github.com/ali-abdelqawy/gene-catcher.git
     cd gene-catcher/src/main/java
     javac Main.java
-    java Main.java ..//..//..//input
+    java Main ..//..//..//input
 
 ### Using IntelliJ IDEA
 
     1. git clone https://github.com/ali-abdelqawy/gene-catcher.git
     2. Open the project with the compiler
-    3. Click on "Run" in the main menu
-    4. Click on "Edit configuration"
+    3. Click "Run" in the main menu
+    4. Click "Edit configuration"
     5. Type "input" in the program arguments field
-    6. Click on "OK"
+    6. Click "OK"
     7. Run the project
 
 > Note: you need to install Java in order to run this project.
