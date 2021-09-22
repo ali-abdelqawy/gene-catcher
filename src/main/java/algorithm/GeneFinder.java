@@ -10,8 +10,8 @@ import output.Printer;
 
 public class GeneFinder {
 
-    private DNA dna;
-    private String strand = "";
+    private final DNA dna;
+    private final String strand;
 
     public GeneFinder(DNA dna) {
         this.dna = dna;
