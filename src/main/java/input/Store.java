@@ -38,4 +38,5 @@ public class Store {
     public ArrayList<DNA> getDNAs() {
         return DNAs;
     }
+
 }

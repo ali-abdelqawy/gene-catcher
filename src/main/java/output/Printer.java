@@ -2,7 +2,11 @@ package output;
 
 import input.DNA;
 
-public class Printer {
+public final class Printer {
+    // Private constructor to prevent instantiation
+    private Printer() {
+        throw new UnsupportedOperationException();
+    }
 
     public static void print(DNA dna) {
         System.out.println("filename -> " + "\"" + dna.getFileName() + "\"" + "\n");

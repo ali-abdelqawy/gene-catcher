@@ -29,5 +29,4 @@ public class DNA {
         return strand;
     }
 
-
 }

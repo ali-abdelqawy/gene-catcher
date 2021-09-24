@@ -1,6 +1,11 @@
 package errors;
 
-public class ErrorGenerator {
+public final class ErrorGenerator {
+    // Private constructor to prevent instantiation
+    private ErrorGenerator() {
+        throw new UnsupportedOperationException();
+    }
+
     public static String getEmptyFolderNameError() {
         return "you must specify the folder name";
     }
@@ -16,4 +21,5 @@ public class ErrorGenerator {
     public static void printError(String error) {
         System.err.println("error: " + error);
     }
+
 }

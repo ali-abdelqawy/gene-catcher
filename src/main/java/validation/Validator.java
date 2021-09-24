@@ -4,6 +4,10 @@ import constants.Codon;
 import errors.ErrorGenerator;
 
 public class Validator {
+    // Private constructor to prevent instantiation
+    private Validator() {
+        throw new UnsupportedOperationException();
+    }
 
     public static boolean isStringEmpty(String s) {
         if (s == null)
@@ -25,4 +29,5 @@ public class Validator {
         int distance = stopCodonIndex - geneStart;
         return distance % Codon.LENGTH == 0;
     }
+
 }

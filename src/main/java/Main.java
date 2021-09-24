@@ -10,4 +10,5 @@ public class Main {
             ErrorGenerator.printError(ErrorGenerator.getEmptyFolderNameError());
         }
     }
+
 }
