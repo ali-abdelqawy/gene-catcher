@@ -61,8 +61,6 @@ in this case, we find the stop codon that precedes the other stop codons which i
 
     2.3 Set fromIndex to past the end of gene
 
-3. Print out all genes
-
 ## How to Run the Project
 
 ### Using CLI
