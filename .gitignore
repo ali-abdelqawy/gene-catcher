@@ -24,3 +24,6 @@ hs_err_pid*
 
 # eclipse settings folder
 .settings/
+
+# Binary Folder
+bin/

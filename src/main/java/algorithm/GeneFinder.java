@@ -1,12 +1,12 @@
 package algorithm;
 
-import java.util.ArrayList;
-
 import constants.Codon;
 import input.DNA;
 import input.Store;
-import validation.Validator;
 import output.Printer;
+import validation.Validator;
+
+import java.util.ArrayList;
 
 public class GeneFinder {
 
@@ -23,6 +23,7 @@ public class GeneFinder {
             return;
 
         Store store = new Store(folderName);
+
         ArrayList<DNA> DNAs = store.getDNAs();
         if (DNAs == null)
             return;

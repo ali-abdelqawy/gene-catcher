@@ -14,6 +14,10 @@ public final class ErrorGenerator {
         return "could not find any folder with this name -> " + "\"" + folderName + "\"";
     }
 
+    public static String getEmptyFolderError(String folderName) {
+        return "\"" + folderName + "\"" + " folder is empty.";
+    }
+
     public static String getNoFileFoundError(String fileName) {
         return "could not find any file with this name -> " + fileName;
     }

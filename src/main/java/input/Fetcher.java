@@ -1,13 +1,13 @@
 package input;
 
+import errors.ErrorGenerator;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashMap;
-
-import errors.ErrorGenerator;
 
 public final class Fetcher {
 
@@ -19,9 +19,15 @@ public final class Fetcher {
 
     public HashMap<String, String> getFilesContent() {
         String[] fileNames = getFilesNames();
+
         if (fileNames == null)
             return null;
 
+        if (fileNames.length == 0) {
+            ErrorGenerator.printError(ErrorGenerator.getEmptyFolderError(folderName));
+            return null;
+        }
+        
         ArrayList<String> filesContent =  getFilesContent(fileNames);
         HashMap<String, String> contentByFiles = new HashMap<>();
 

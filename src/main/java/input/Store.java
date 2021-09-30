@@ -16,9 +16,12 @@ public class Store {
 
     public void setStrandsByFiles() {
         Fetcher fetcher = new Fetcher(folderName);
-        if (fetcher.getFilesContent() == null)
+
+        HashMap<String, String> filesContent = fetcher.getFilesContent();
+        if (filesContent == null)
             return;
-        this.strandsByFiles = fetcher.getFilesContent();
+
+        this.strandsByFiles = filesContent;
     }
 
     public void setDNAs() {
